@@ -97,6 +97,20 @@ const movies = {
   },
 };
 
+class Favorite extends Component {
+  render() {
+  	return (
+      profiles.map(
+        profile=>{
+          const userName = users[profile.userID].name;
+          const favoriteMovie = movies[profile.favoriteMovieID].name;
+          return <li key={profile.id}>{userName}'s favorite movie is {favoriteMovie}.</li>
+        }
+      )
+    )
+  }
+}
+
 class App extends Component {
   render() {
     return (
@@ -106,6 +120,9 @@ class App extends Component {
           <h1 className="App-title">ReactND - Coding Practice</h1>
         </header>
         <h2>Favorite Movies</h2>
+		<ol>
+			<Favorite />
+		</ol>
       </div>
     );
   }
